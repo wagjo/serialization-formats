@@ -95,5 +95,6 @@ comments | NO :x: | `;` till the end of the line | `;` till the end of the line
 discard | NO :x: | `#_` discards next read object | `#_` discards next read object
 tagged literal | NO :x: | `#` followed immediately by a symbol starting with an alphabetic character | `#` followed immediately by a symbol starting with an alphabetic character
 builtin tags | *n/a* | `#inst` `#uuid` |  `#inst` `#uuid`, deftypes, defrecords and java classes constructors
+regular expressions | NO :x: | NO :x: | `#"pattern"`
 macros | NO :x: | NO :x: | `'` (quote), `@` (deref), `^` (metadata), `#'` (var quote), `#(% %n %&)` (anonymous function), `` ` `` (syntax quote), `~` (unquote), `~@` (unquote splicing).
 

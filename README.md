@@ -68,13 +68,13 @@ valid signs | `-` | `-` `+` |  `-` `+`
  | JSON | EDN | CLJ
 -----|-----|-----|----
 symbols | NO :x: | YES | YES
-symbol start character | *n/a* | alphabetic, `+` `-` `.` followed by non-numeric symbol character, `*` `!` `_` `?` `$` `%` `&` `=` `<` `>` | XXX
-symbol character | *n/a* | alphanumeric, `+` `-` `.` `*` `!` `_` `?` `$` `%` `&` `=` `<` `>` `:` `#` `/` | XXX
-special symbol character  | *n/a* | `/`, used alone or in following combinations `foo//` `foo/bar`. First character after slash must follow rule for symbol start character | `/`, used alone or in following combinations `foo/bar` `foo//` 
+symbol start character | *n/a* | alphabetic, `+` `-` `.` followed by non-numeric symbol character, `*` `!` `_` `?` `$` `%` `&` `=` `<` `>` | alphabetic, `+` `-` `*` `!` `_` `?`
+symbol character | *n/a* | alphanumeric, `+` `-` `.` `*` `!` `_` `?` `$` `%` `&` `=` `<` `>` `:` `#` | alphanumeric,  `+` `-` `*` `!` `_` `?`
+special symbol character  | *n/a* | `/`, used alone or in following combinations `foo//` `foo/bar`. First character after slash must follow rule for symbol start character | `/`, used alone or in following combinations `foo/bar` `foo//`. `.`, used as prefix and suffix is reserved to Clojure, used inside symbol divides namespace or package names. `:` can be used inside symbol, used as suffix is reserved to Clojure.
 keyword | NO :x: | prefixed with `:` | prefixed with `:`
-keyword character | *n/a* | alphanumeric, `+` `-` `.` `*` `!` `_` `?` `$` `%` `&` `=` `<` `>` `:` `#` `/` | XXX
-keyword invalid second character | *n/a* | `:` `/`
-special keyword character  | *n/a* | `/`, used in following combinations `:foo//` `:foo/bar`. First character after slash must follow rule for symbol start character | `/`, used in following combinations `:foo/bar` `:foo//` 
+keyword character | *n/a* | alphanumeric, `+` `-` `.` `*` `!` `_` `?` `$` `%` `&` `=` `<` `>` `:` `#` | alphanumeric,  `+` `-` `*` `!` `_` `?` `:`
+keyword invalid second character | *n/a* | `:` | *none*
+special keyword character  | *n/a* | `/`, used in following combinations `:foo//` `:foo/bar`. First character after slash must follow rule for symbol start character | `/`, used in following combinations `:foo/bar` `:foo//`. `:` used as second character resolves keyword in the current namespace. Specs also say that keywords cannot contain '.' *( :warning: restriction meant probably only for the name part of the keyword) or name classes.
 
 ## Collections
 
@@ -90,3 +90,7 @@ map | `{string1 : val1, string2 : val2]` | `{key1 val1 key2 val2}` keys are uniq
 -----|-----|-----|----
 comments | NO :x: | `;` till the end of the line | `;` till the end of the line
 discard | NO :x: | `#_` discards next read object | `#_` discards next read object
+tagged literal | NO :x: | `#` followed immediately by a symbol starting with an alphabetic character | XXX
+builtin tags | *n/a* | `#inst` `#uuid` |  `#inst` `#uuid`, deftypes, defrecords and java classes constructors
+macros | NO :x: | NO :x: | `'` (quote), `@` (deref), `^` (metadata), `#'` (var quote), `#(% %n %&)` (anonymous function), `` ` `` (syntax quote), `~` (unquote), `~@` (unquote splicing). ( :warning: specs does not mention `&`)
+

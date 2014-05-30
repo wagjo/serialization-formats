@@ -30,9 +30,9 @@ false literal | `false` | `false` | `false`
  | JSON | EDN | CLJ
 -----|-----|-----|----
 syntax | NONE :x: | `\X` | `\X`
-special characters | NO :x: | `\newline` `\tab` `\return` `\space` | `\newline` `\tab` `\return` `\space` `\backspace` `\formfeed` 
-unicode escapes | NO :x: | `\uNNNN` | `\uNNNN`
-octal escapes | NO :x: | NO :x: | `\o0` to `\o377`
+special characters | *n/a* | `\newline` `\tab` `\return` `\space` | `\newline` `\tab` `\return` `\space` `\backspace` `\formfeed` 
+unicode escapes | *n/a* | `\uNNNN` | `\uNNNN`
+octal escapes | *n/a* | NO :x: | `\o0` to `\o377`
 
 ## Strings
 
@@ -53,7 +53,7 @@ arbitrary precision indicator | NO :x: | `N` suffix | `N` suffix
 valid signs | `-` | `-` `+` |  `-` `+`
 `-0` is valid | YES | YES | YES
 decimal integer | YES | YES | YES
-custom radix | NO :x: | NO :x: | `NrNNNNN`
+custom radix | NO :x: | NO :x: | `NNrNNNNN`
 hexa integer | NO :x: | NO :x: | `0xNNNNN`, but undocumented :warning:
 octal integer | NO :x: | NO :x: | `0NNN`, but undocumented :warning:
 
@@ -63,7 +63,7 @@ octal integer | NO :x: | NO :x: | `0NNN`, but undocumented :warning:
 -----|-----|-----|----
 ratios | NO :x: | NO :x: | `NN/NN`
 decimals | NO :x: | `M` suffix | `M` suffix 
-floating points | YES | YES | YES
+floats | YES | YES | YES
 valid signs | `-` | `-` `+` |  `-` `+`
 
 ## Identifiers
@@ -72,7 +72,7 @@ valid signs | `-` | `-` `+` |  `-` `+`
 -----|-----|-----|----
 symbols | NO :x: | YES | YES
 symbol start character | *n/a* | alphabetic, `+` `-` `.` followed by non-numeric symbol character, `*` `!` `_` `?` `$` `%` `&` `=` `<` `>` | alphabetic, `+` `-` `*` `!` `_` `?`
-symbol character | *n/a* | alphanumeric, `+` `-` `.` `*` `!` `_` `?` `$` `%` `&` `=` `<` `>` `:` `#` | alphanumeric,  `+` `-` `*` `!` `_` `?` ( :warning: specs does not mention `$`)
+symbol character | *n/a* | alphanumeric, `+` `-` `.` `*` `!` `_` `?` `$` `%` `&` `=` `<` `>` `:` `#` | alphanumeric,  `+` `-` `*` `!` `_` `?` ( :warning: specs does not mention `$` `=` `<` `>` `%` `&`)
 special symbol character  | *n/a* | `/`, used alone or in following combinations `foo//` `foo/bar`. First character after slash must follow rule for symbol start character | `/`, used alone or in following combinations `foo/bar` `foo//`. `.`, used as prefix and suffix is reserved to Clojure, used inside symbol divides namespace or package names. `:` can be used inside symbol, used as suffix is reserved to Clojure.
 keyword | NO :x: | prefixed with `:` | prefixed with `:`
 keyword character | *n/a* | alphanumeric, `+` `-` `.` `*` `!` `_` `?` `$` `%` `&` `=` `<` `>` `:` `#` | alphanumeric,  `+` `-` `*` `!` `_` `?` `:`
@@ -95,5 +95,5 @@ comments | NO :x: | `;` till the end of the line | `;` till the end of the line
 discard | NO :x: | `#_` discards next read object | `#_` discards next read object
 tagged literal | NO :x: | `#` followed immediately by a symbol starting with an alphabetic character | `#` followed immediately by a symbol starting with an alphabetic character
 builtin tags | *n/a* | `#inst` `#uuid` |  `#inst` `#uuid`, deftypes, defrecords and java classes constructors
-macros | NO :x: | NO :x: | `'` (quote), `@` (deref), `^` (metadata), `#'` (var quote), `#(% %n %&)` (anonymous function), `` ` `` (syntax quote), `~` (unquote), `~@` (unquote splicing). ( :warning: specs does not mention `&`)
+macros | NO :x: | NO :x: | `'` (quote), `@` (deref), `^` (metadata), `#'` (var quote), `#(% %n %&)` (anonymous function), `` ` `` (syntax quote), `~` (unquote), `~@` (unquote splicing).
 

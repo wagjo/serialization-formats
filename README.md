@@ -73,7 +73,7 @@ valid signs | `-` | `-` `+` |  `-` `+`
 symbols | NO :x: | YES | YES
 symbol start character | *n/a* | alphabetic, `+` `-` `.` followed by non-numeric symbol character, `*` `!` `_` `?` `$` `%` `&` `=` `<` `>` | alphabetic, `+` `-` `*` `!` `_` `?`
 symbol character | *n/a* | alphanumeric, `+` `-` `.` `*` `!` `_` `?` `$` `%` `&` `=` `<` `>` `:` `#` | alphanumeric,  `+` `-` `*` `!` `_` `?` ( :warning: specs does not mention `$` `=` `<` `>` `%` `&`)
-special symbol character  | *n/a* | `/`, used alone or in following combinations `foo//` `foo/bar`. First character after slash must follow rule for symbol start character | `/`, used alone or in following combinations `foo/bar` `foo//`. `.`, used as prefix and suffix is reserved to Clojure, used inside symbol divides namespace or package names. `:` can be used inside symbol, used as suffix is reserved to Clojure.
+special symbol character  | *n/a* | `/`, used alone or in following combinations `foo/bar` (:warning: In my opinion `foo//` is not allowed, [see this ticket](https://github.com/edn-format/edn/issues/51)). First character after slash must follow rule for symbol start character | `/`, used alone or in following combinations `foo/bar` `foo//`. `.`, used as prefix and suffix is reserved to Clojure, used inside symbol divides namespace or package names. `:` can be used inside symbol, used as suffix is reserved to Clojure.
 keyword | NO :x: | prefixed with `:` | prefixed with `:`
 keyword character | *n/a* | alphanumeric, `+` `-` `.` `*` `!` `_` `?` `$` `%` `&` `=` `<` `>` `:` `#` | alphanumeric,  `+` `-` `*` `!` `_` `?` `:`
 keyword invalid second character | *n/a* | `:` | *none*

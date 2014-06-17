@@ -71,8 +71,8 @@ valid signs | `-` | `-` `+` |  `-` `+`
  | JSON | EDN | CLJ
 -----|-----|-----|----
 symbols | NO :x: | YES | YES
-symbol start character | *n/a* | alphabetic, `+` `-` `.` followed by non-numeric symbol character, `*` `!` `_` `?` `$` `%` `&` `=` `<` `>` | alphabetic, `+` `-` `*` `!` `_` `?`
-symbol character | *n/a* | alphanumeric, `+` `-` `.` `*` `!` `_` `?` `$` `%` `&` `=` `<` `>` `:` `#` | alphanumeric,  `+` `-` `*` `!` `_` `?` ( :warning: specs does not mention `$` `=` `<` `>` `%` `&`)
+symbol start character | *n/a* | alphabetic, `+` `-` `.` followed by non-numeric symbol character, `*` `!` `_` `?` `$` `%` `&` `=` `<` `>` (`/` is special, see below) | alphabetic, `+` `-` `*` `!` `_` `?` (`/` and `.` are special, see below), ( :warning: specs does not mention `$` `=` `<` `>` `%` `&`)
+symbol character | *n/a* | alphanumeric, `+` `-` `.` `*` `!` `_` `?` `$` `%` `&` `=` `<` `>` `:` `#` | alphanumeric,  `+` `-` `*` `!` `_` `?` (`.` `/` and `:` are special, see below), ( :warning: specs does not mention `$` `=` `<` `>` `%` `&` `#` `'`)
 special symbol character  | *n/a* | `/`, used alone or in following combinations `foo/bar` (:warning: In my opinion `foo//` is not allowed, [see this ticket](https://github.com/edn-format/edn/issues/51)). First character after slash must follow rule for symbol start character | `/`, used alone or in following combinations `foo/bar` `foo//` (:warning: latter combination is undocumented). `.`, used as prefix and suffix is reserved to Clojure, used inside symbol divides namespace or package names. `:` can be used inside symbol, used as suffix is reserved to Clojure.
 keyword | NO :x: | prefixed with `:` | prefixed with `:`
 keyword character | *n/a* | alphanumeric, `+` `-` `.` `*` `!` `_` `?` `$` `%` `&` `=` `<` `>` `:` `#` | alphanumeric,  `+` `-` `*` `!` `_` `?` `:`

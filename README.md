@@ -10,7 +10,7 @@ Comparison of selected data serialization formats.
  | JSON | EDN | CLJ
 -----|-----|-----|----
 whitespace character | U+0009 (tab) U+000A (newline) U+000D (return) and U+0020 (space) | :warning: specs does not specify whitespace chars, explicitly mentions just `,` | :warning: specs does not specify whitespace chars, explicitly mentions just `,`
-delimiters | whitespaces, all structural (`{` `}` `:` `,` `[` `]`) and literal (`true` `false` `null`) tokens | whitespaces and `[` `]` `{` `}` `(` `)` ( :warning: additional delimiters not mentioned in specs `"` `\` `;`)| :warning: no explicit mention in specs
+delimiters | whitespaces, all structural (`{` `}` `:` `,` `[` `]`) and literal (`true` `false` `null`) tokens | whitespaces and `[` `]` `{` `}` `(` `)` ( :warning: additional delimiters not mentioned in specs `"` `\` `;`) | `[` `]` `{` `}` `(` `)` `"` `\` `;` `@` `^` `` ` `` `~` (:warning: no explicit mention in specs)
 
 ## Null
 
